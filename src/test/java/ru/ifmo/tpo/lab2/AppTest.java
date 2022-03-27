@@ -1,8 +1,8 @@
-package ru.ifmo.tpo;
+package ru.ifmo.tpo.lab2;
 
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
+import ru.ifmo.tpo.lab2.App;
 
 /**
  * Unit test for simple App.
@@ -15,6 +15,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        assertEquals(0, App.test());;
     }
 }

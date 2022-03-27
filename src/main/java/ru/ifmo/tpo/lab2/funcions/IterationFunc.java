@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 import ru.ifmo.tpo.lab2.intefaces.IFunc;
 
 public abstract class IterationFunc implements IFunc{
-    private static final int max_iterations = 1000;
+    private static final int MAX_ITERATIONS = 1000;
     
     @Override
     public BigDecimal solve(BigDecimal x, BigDecimal accuracy) {
-        return null;
+        return BigDecimal.valueOf(MAX_ITERATIONS);
     }
 }
