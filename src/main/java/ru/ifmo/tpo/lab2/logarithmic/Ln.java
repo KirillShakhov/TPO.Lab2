@@ -3,13 +3,13 @@ package ru.ifmo.tpo.lab2.logarithmic;
 import ru.ifmo.tpo.lab2.models.IFunc;
 
 public class Ln implements IFunc {
-    private final LogN logN;
+    private final IFunc logN;
     
     public Ln(Double accuracy) {
         this.logN = new LogN(accuracy);
     }
 
-    public Ln(LogN logN) {
+    public Ln(IFunc logN) {
         this.logN = logN;
     }
 

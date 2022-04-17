@@ -17,7 +17,7 @@ public class TgTest {
 
     @BeforeAll
     public static void setUp() {
-        tg = new Tg(DEFAULT_PRECISION);
+        tg = new Tg();
     }
 
 
@@ -43,7 +43,7 @@ public class TgTest {
 
     @ParameterizedTest(name = "tg({0}) = {1}")
     @DisplayName("Check table dots")
-    @CsvFileSource(resources = "/table.csv", numLinesToSkip = 1, delimiter = ';')
+    @CsvFileSource(resources = "/tableTg.csv", numLinesToSkip = 1, delimiter = ';')
     void checkBetweenDotsMinusPiAndPi(double x, double y) {
         assertAll(
                 () -> assertEquals(y, tg.solve(x), 0.0001)

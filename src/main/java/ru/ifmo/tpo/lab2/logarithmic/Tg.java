@@ -9,10 +9,8 @@ import static java.lang.Math.pow;
 import static java.lang.Math.abs;
 
 public class Tg implements IFunc{
-    
 
-    public Tg(Double accuracy) {
-    }
+    public Tg(){}
 
     @Override
     public Double solve(Double x){
