@@ -6,9 +6,14 @@ import java.math.RoundingMode;
 import ru.ifmo.tpo.lab2.models.IFunc;
 
 public class Sin implements IFunc {
+    private final Double accuracy;
+
+    public Sin(double accuracy) {
+        this.accuracy = accuracy;
+    }
 
     @Override
-    public Double solve(Double x, Double accuracy) {
+    public Double solve(Double x) {
         double X = x.doubleValue();
 
         double PI2 = Math.PI * 2;

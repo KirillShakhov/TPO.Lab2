@@ -1,15 +1,12 @@
 package ru.ifmo.tpo.lab2.logarithmic;
 
-import java.math.BigDecimal;
-
 import ru.ifmo.tpo.lab2.models.IFunc;
-import ru.ifmo.tpo.lab2.models.NotANumberException;
 
 public class Ln implements IFunc {
-    LogN logN = new LogN();
-
-    public Ln() {
-        this.logN = new LogN();
+    private final LogN logN;
+    
+    public Ln(Double accuracy) {
+        this.logN = new LogN(accuracy);
     }
 
     public Ln(LogN logN) {
@@ -17,7 +14,7 @@ public class Ln implements IFunc {
     }
 
     @Override
-    public Double solve(Double x, Double accuracy) {
-        return logN.solve(x, accuracy)/logN.solve(Double.valueOf(Math.E), accuracy);
+    public Double solve(Double x) {
+        return logN.solve(x)/logN.solve(Math.E);
     }
 }

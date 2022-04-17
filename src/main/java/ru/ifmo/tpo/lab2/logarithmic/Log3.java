@@ -4,18 +4,18 @@ package ru.ifmo.tpo.lab2.logarithmic;
 import ru.ifmo.tpo.lab2.models.IFunc;
 
 public class Log3 implements IFunc {
-    LogN logN = new LogN();
+    private final LogN logN;
 
-    public Log3() {
-        this.logN = new LogN();
+    public Log3(Double accuracy) {
+        this.logN = new LogN(accuracy);
     }
-    
+
     public Log3(LogN logN) {
         this.logN = logN;
     }
 
     @Override
-    public Double solve(Double x, Double accuracy) {
-        return logN.solve(x, accuracy)/logN.solve(Double.valueOf(3), accuracy);
+    public Double solve(Double x) {
+        return logN.solve(x)/logN.solve(3D);
     }
 }

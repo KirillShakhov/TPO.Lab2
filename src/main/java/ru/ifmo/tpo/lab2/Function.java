@@ -8,26 +8,28 @@ import ru.ifmo.tpo.lab2.logarithmic.Log2;
 import ru.ifmo.tpo.lab2.logarithmic.Log3;
 
 public class Function {
-    Cot cot = new Cot();
-    Csc csc = new Csc();
-    Log2 log2 = new Log2();
-    Log3 log3 = new Log3();
-    Log10 log10 = new Log10();
-    Ln ln = new Ln();
-    Function(){
-        cot = new Cot();
-        csc = new Csc();
-        log3 = new Log3();
-        log10 = new Log10();
-        ln = new Ln();
+
+    Cot cot;
+    Csc csc;
+    Log2 log2;
+    Log3 log3;
+    Log10 log10;
+    Ln ln;
+    
+    Function(Double accuracy){
+        cot = new Cot(accuracy);
+        csc = new Csc(accuracy);
+        log3 = new Log3(accuracy);
+        log10 = new Log10(accuracy);
+        ln = new Ln(accuracy);
     }
 
-    public Double solve(Double x, Double eps){
+    public Double solve(Double x){
         if (x <= 0){
-            return csc.solve(x, eps)/cot.solve(x, eps);
+            return csc.solve(x)/cot.solve(x);
         }
         else{
-            return (((log3.solve(x, eps)*log10.solve(x, eps))*(ln.solve(x, eps)-log3.solve(x, eps)* Math.pow(log2.solve(x, eps), 2)))*(log3.solve(x, eps) + Math.pow(log10.solve(x, eps), 2)));
+            return (((log3.solve(x)*log10.solve(x))*(ln.solve(x)-log3.solve(x)* Math.pow(log2.solve(x), 2)))*(log3.solve(x) + Math.pow(log10.solve(x), 2)));
         }
     }
 }

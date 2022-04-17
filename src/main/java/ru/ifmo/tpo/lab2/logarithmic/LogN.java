@@ -4,9 +4,14 @@ package ru.ifmo.tpo.lab2.logarithmic;
 import ru.ifmo.tpo.lab2.models.IFunc;
 
 public class LogN implements IFunc {
+    private final Double accuracy;
+
+    public LogN(Double accuracy) {
+        this.accuracy = accuracy;
+    }
 
     @Override
-    public Double solve(Double x, Double accuracy) {
+    public Double solve(Double x) {
         if (x.doubleValue() <= 0)
             return Double.NaN;
         double arg = (x.doubleValue() - 1) / (x.doubleValue() + 1);
