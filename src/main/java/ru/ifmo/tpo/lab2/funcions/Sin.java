@@ -3,13 +3,12 @@ package ru.ifmo.tpo.lab2.funcions;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import ru.ifmo.tpo.lab2.intefaces.IFunc;
+import ru.ifmo.tpo.lab2.models.IFunc;
 
 public class Sin implements IFunc {
 
     @Override
-    public BigDecimal solve(BigDecimal x, BigDecimal accuracy) {
-
+    public Double solve(Double x, Double accuracy) {
         double X = x.doubleValue();
 
         double PI2 = Math.PI * 2;
@@ -28,9 +27,9 @@ public class Sin implements IFunc {
             prev = sum;
             sum = sum.add(minusOnePow(i).multiply(prod(X, 2 * i + 1)));
             i++;
-        } while (new BigDecimal("0.1").pow(accuracy.scale()).compareTo(prev.subtract(sum).abs()) < 0);
+        } while (new BigDecimal("0.1").pow(BigDecimal.valueOf(accuracy).scale()).compareTo(prev.subtract(sum).abs()) < 0);
 
-        return sum.setScale(accuracy.scale(), RoundingMode.HALF_EVEN);
+        return sum.setScale(BigDecimal.valueOf(accuracy).scale(), RoundingMode.HALF_EVEN).doubleValue();
     }
 
     private static BigDecimal minusOnePow(int n) {
