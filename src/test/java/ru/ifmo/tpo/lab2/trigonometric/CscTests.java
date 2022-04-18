@@ -1,10 +1,10 @@
 package ru.ifmo.tpo.lab2.trigonometric;
 
-import org.junit.Before;
-import org.junit.Test;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -26,22 +26,19 @@ public class CscTests {
     private static Sin sinSpy;
 
     private static Csc csc;
+    private static Csc cscSpy;
 
     @BeforeAll
-    public static void initMocks() {
+    public static void setUp() {
         csc = new Csc(sinMock);
-    }
-
-    @Before
-    public void setUp() {
         sinSpy = spy(new Sin(DEFAULT_PRECISION));
-        csc = new Csc(sinSpy);
+        cscSpy = new Csc(sinSpy);
     }
 
     @Test
     @DisplayName("Check tg use")
     public void checkTgUse() {
-        csc.solve(Math.PI / 8);
+        cscSpy.solve(Math.PI / 8);
         verify(sinSpy, atLeastOnce()).solve(anyDouble());
     }
 

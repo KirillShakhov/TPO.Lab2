@@ -1,9 +1,10 @@
 package ru.ifmo.tpo.lab2.trigonometric;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-import org.junit.Test;
 
 public class SinTests {
 
@@ -12,7 +13,7 @@ public class SinTests {
     @Test
     public void shouldCalculateForZero() {
         final Sin sin = new Sin(DEFAULT_PRECISION);
-        assertEquals(0, sin.solve(Double.valueOf(0)), DEFAULT_PRECISION);
+        assertEquals(0, sin.solve(0D), DEFAULT_PRECISION);
     }
 
     @Test

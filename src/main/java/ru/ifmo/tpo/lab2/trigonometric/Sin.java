@@ -8,9 +8,6 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 public class Sin implements IFunc {
     private final Double accuracy;
 
-    public Sin() {
-        this.accuracy = 0.0001D;
-    }
 
     public Sin(Double accuracy) {
         this.accuracy = accuracy;
@@ -18,7 +15,7 @@ public class Sin implements IFunc {
 
     @Override
     public Double solve(Double x) {
-        double X = x.doubleValue();
+        double X = x;
 
         double PI2 = Math.PI * 2;
         int i = 0;

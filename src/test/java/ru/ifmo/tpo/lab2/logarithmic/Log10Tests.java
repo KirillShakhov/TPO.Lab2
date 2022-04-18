@@ -1,9 +1,8 @@
 package ru.ifmo.tpo.lab2.logarithmic;
 
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -27,14 +26,15 @@ public class Log10Tests {
     }
 
 
-    @Before
-    public void initcheckLogNUse() {
+    @BeforeAll
+    public static void initcheckLogNUse() {
         lognSpy = spy(new LogN(DEFAULT_PRECISION));
         l10 = new Log10(lognSpy);
     }
 
     @Test
     public void checkLogNUse() {
+        l10 = new Log10(lognSpy);
         Double res = l10.solve(-1D);
         verify(lognSpy, atLeastOnce()).solve(anyDouble());
         Assertions.assertEquals(Math.log(-1D) / Math.log(10D), res, 0.0001);
