@@ -9,9 +9,9 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CscWritterTests {
+public class CsvWritterTests {
     @Test
-    public void checkCscWritter() throws IOException {
+    public void checkCsvWritter() throws IOException {
         Double from = -1D;
         Double to = 1D;
         Double step = 1D;
@@ -19,7 +19,7 @@ public class CscWritterTests {
 
         CsvWriter.write(
                 path,
-                x -> Math.sin(x),
+                Math::sin,
                 from,
                 to,
                 step);
