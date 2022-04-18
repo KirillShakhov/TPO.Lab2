@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-public class SinTest {
+public class SinTests {
 
     private static final Double DEFAULT_PRECISION = Double.valueOf("0.0001");
 

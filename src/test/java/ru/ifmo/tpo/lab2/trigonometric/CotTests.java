@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 import org.junit.Test;
 
 @ExtendWith(MockitoExtension.class)
-public class CotTest {
+public class CotTests {
     private final static double DEFAULT_PRECISION = 0.0000001;
     private AutoCloseable openMocks;
 

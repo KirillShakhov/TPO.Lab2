@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-class LogNTest {
+public class LogNTests {
 
     static LogN ln;
     public final static double DEFAULT_PRECISION = 0.0000001;

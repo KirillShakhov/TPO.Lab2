@@ -17,7 +17,7 @@ import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CscTest {
+public class CscTests {
     private final static double DEFAULT_PRECISION = 0.0000001;
 
     @Mock
