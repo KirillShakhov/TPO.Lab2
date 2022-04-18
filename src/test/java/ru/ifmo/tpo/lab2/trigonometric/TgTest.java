@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 
 public class TgTest {
-
     static Tg tg;
     public final static double DEFAULT_PRECISION = 0.0000001;
 
