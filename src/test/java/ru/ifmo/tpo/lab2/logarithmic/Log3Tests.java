@@ -1,21 +1,19 @@
 package ru.ifmo.tpo.lab2.logarithmic;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import ru.ifmo.tpo.lab2.models.NotANumberException;
 
 
 public class Log3Tests {
+    private LogN ln;
+    private Log3 l3;
+    public final double DEFAULT_PRECISION = 0.0000001;
 
-    static LogN ln;
-    static Log3 l3;
-    public final static double DEFAULT_PRECISION = 0.0000001;
-
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         ln = new LogN(DEFAULT_PRECISION);
         l3 = new Log3(ln);
     }

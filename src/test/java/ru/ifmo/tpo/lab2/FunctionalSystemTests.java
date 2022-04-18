@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
@@ -40,24 +41,15 @@ public class FunctionalSystemTests {
     @Mock private Log3 l3Mock;
     @Mock private Log10 l10Mock;
 
+    @Spy private Cot cotSpy;
+    @Spy private Csc cscSpy;
+    @Spy private Sin sinSpy;
+    @Spy private Tg tgSpy;
 
-    @Spy
-    private Cot cotSpy;
-    @Spy
-    private Csc cscSpy;
-    @Spy
-    private Sin sinSpy;
-    @Spy
-    private Tg tgSpy;
-
-    @Spy
-    private Ln lnSpy;
-    @Spy
-    private Log2 l2Spy;
-    @Spy
-    private Log3 l3Spy;
-    @Spy
-    private Log10 l10Spy;
+    @Spy private Ln lnSpy;
+    @Spy private Log2 l2Spy;
+    @Spy private Log3 l3Spy;
+    @Spy private Log10 l10Spy;
     
     private FunctionalSystem fs;
 
@@ -79,14 +71,14 @@ public class FunctionalSystemTests {
 
     @Before
     public void initcheckFuncsUse(){
-        cotSpy = spy(new Cot());
-        cscSpy = spy(new Csc());
-        sinSpy = spy(new Sin());
-        tgSpy = spy(new Tg());
-        lnSpy = spy(new Ln());
-        l2Spy = spy(new Log2());
-        l3Spy = spy(new Log3());
-        l10Spy = spy(new Log10());
+        cotSpy = spy(new Cot(DEFAULT_PRECISION));
+        cscSpy = spy(new Csc(DEFAULT_PRECISION));
+        sinSpy = spy(new Sin(DEFAULT_PRECISION));
+        tgSpy = spy(new Tg(DEFAULT_PRECISION));
+        lnSpy = spy(new Ln(DEFAULT_PRECISION));
+        l2Spy = spy(new Log2(DEFAULT_PRECISION));
+        l3Spy = spy(new Log3(DEFAULT_PRECISION));
+        l10Spy = spy(new Log10(DEFAULT_PRECISION));
         fs = new FunctionalSystem(cotSpy, cscSpy, l2Spy, l3Spy, l10Spy, lnSpy);
     }
 
@@ -105,20 +97,20 @@ public class FunctionalSystemTests {
     );
     }
 
-    // @ParameterizedTest(name = "Funtional System({0}) = NaN")
-    // @DisplayName("Check PI dots NaN")
-    // @ValueSource(doubles = {Math.PI/2, -Math.PI/2})
-    // void checkPiDotsNaN(double param) {
-    //     assertAll(
-    //             () -> assertEquals(Double.NaN, tg.solve(param))
-    //     );
-    // }
+    @ParameterizedTest(name = "Funtional System({0}) = NaN")
+    @DisplayName("Check NaN")
+    @ValueSource(doubles = {0, -Math.PI/2, -3*Math.PI/2})
+    public void checkNaN(double param) {
+        assertAll(
+                () -> assertEquals(Double.NaN, fs.solve(param))
+        );
+    }
 
 
     @ParameterizedTest(name = "Funtional System({0}) = {1}")
     @DisplayName("Check table dots")
     @CsvFileSource(resources = "/tableFS.csv", numLinesToSkip = 1, delimiter = ';')
-    void checkBetweenDotsMinusPiAndPi(double x, double y) {
+    public void checkBetweenDotsMinusPiAndPi(double x, double y) {
         when(cotMock.solve(anyDouble())).thenReturn(1.0 / Math.tan(x));
         when(cscMock.solve(anyDouble())).thenReturn(1.0 / Math.sin(x));
         when(l2Mock.solve(anyDouble())).thenReturn(Math.log(x) / Math.log(2));

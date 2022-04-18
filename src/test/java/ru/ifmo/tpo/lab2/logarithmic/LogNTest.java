@@ -20,14 +20,13 @@ class LogNTest {
 
     @ParameterizedTest
     @ValueSource(doubles = {0.01, 0.10, 0.5, 0.8, 1.0, 1.5, 3.5, 6.666, 1000.00})
-    public void checkPositive(double val) throws NotANumberException {
+    public void checkPositive(double val) {
         Assertions.assertEquals(Math.log(val), ln.solve(val), DEFAULT_PRECISION * 1000);
-        
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {-1.0, -20.0002, -1000.00})
-    public void checkBad(double val) throws NotANumberException {
+    public void checkBad(double val) {
         Assertions.assertEquals(Math.log(val), ln.solve(val), DEFAULT_PRECISION * 1000);
     }
 
