@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 
-public class AppTest 
+public class AppTests
 {
     @Test
     public void shouldAnswerWithTrue() throws IOException {
