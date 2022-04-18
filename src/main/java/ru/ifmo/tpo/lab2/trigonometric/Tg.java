@@ -1,4 +1,4 @@
-package ru.ifmo.tpo.lab2.logarithmic;
+package ru.ifmo.tpo.lab2.trigonometric;
 
 import org.apache.commons.math3.fraction.BigFraction;
 

@@ -1,4 +1,4 @@
-package ru.ifmo.tpo.lab2.logarithmic;
+package ru.ifmo.tpo.lab2.trigonometric;
 
 import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;

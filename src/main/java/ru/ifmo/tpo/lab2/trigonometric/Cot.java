@@ -1,4 +1,4 @@
-package ru.ifmo.tpo.lab2.logarithmic;
+package ru.ifmo.tpo.lab2.trigonometric;
 
 import ru.ifmo.tpo.lab2.models.IFunc;
 

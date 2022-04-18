@@ -1,4 +1,4 @@
-package ru.ifmo.tpo.lab2.funcions;
+package ru.ifmo.tpo.lab2.trigonometric;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,7 +8,11 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 public class Sin implements IFunc {
     private final Double accuracy;
 
-    public Sin(double accuracy) {
+    public Sin() {
+        this.accuracy = 0.0001D;
+    }
+
+    public Sin(Double accuracy) {
         this.accuracy = accuracy;
     }
 

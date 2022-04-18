@@ -1,7 +1,4 @@
-package ru.ifmo.tpo.lab2.funcions;
-
-
-import ru.ifmo.tpo.lab2.models.IFunc;
+package ru.ifmo.tpo.lab2.models;
 
 public abstract class IterationFunc implements IFunc{
     private final int MAX_ITERATIONS = 1000;

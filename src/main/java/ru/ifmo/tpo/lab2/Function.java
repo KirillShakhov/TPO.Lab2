@@ -1,11 +1,11 @@
 package ru.ifmo.tpo.lab2;
 
-import ru.ifmo.tpo.lab2.logarithmic.Cot;
-import ru.ifmo.tpo.lab2.logarithmic.Csc;
 import ru.ifmo.tpo.lab2.logarithmic.Ln;
 import ru.ifmo.tpo.lab2.logarithmic.Log10;
 import ru.ifmo.tpo.lab2.logarithmic.Log2;
 import ru.ifmo.tpo.lab2.logarithmic.Log3;
+import ru.ifmo.tpo.lab2.trigonometric.Cot;
+import ru.ifmo.tpo.lab2.trigonometric.Csc;
 
 public class Function {
 

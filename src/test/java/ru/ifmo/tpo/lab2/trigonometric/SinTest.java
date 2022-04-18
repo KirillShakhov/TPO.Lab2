@@ -1,11 +1,9 @@
-package ru.ifmo.tpo.lab2.functions;
+package ru.ifmo.tpo.lab2.trigonometric;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 import org.junit.Test;
-
-import ru.ifmo.tpo.lab2.funcions.Sin;
 
 public class SinTest {
 
