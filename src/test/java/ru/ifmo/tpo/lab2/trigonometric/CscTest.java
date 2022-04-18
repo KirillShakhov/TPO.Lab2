@@ -2,7 +2,6 @@ package ru.ifmo.tpo.lab2.trigonometric;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyDouble;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -45,7 +44,7 @@ public class CscTest {
     }
 
     @Before
-    public void initcheckSinUse() {
+    void setUp() {
         openMocks = MockitoAnnotations.openMocks(this);
         this.csc = new Csc(sinSpy);
     }
@@ -60,7 +59,7 @@ public class CscTest {
     @ParameterizedTest(name = "csc({0})")
     @DisplayName("Check PI dots")
     @ValueSource(doubles = { Math.PI / 12, Math.PI / 8, Math.PI / 6, Math.PI / 4, Math.PI / 3,
-            -Math.PI / 12, -Math.PI / 8, -Math.PI / 6, -Math.PI / 4, -Math.PI / 3, -Math.PI / 2 })
+            -Math.PI / 12, -Math.PI / 8, -Math.PI / 6, -Math.PI / 4, -Math.PI / 3 })
     public void checkPiDots(double param) {
         csc = new Csc(sinMock);
         when(sinMock.solve(anyDouble())).thenReturn(Math.sin(param));
@@ -69,9 +68,16 @@ public class CscTest {
 
     @ParameterizedTest(name = "csc({0}) = 1")
     @DisplayName("Check PI dots NaN")
-    @ValueSource(doubles = { Math.PI/2, -Math.PI/2, 3*Math.PI/2, -3*Math.PI/2})
+    @ValueSource(doubles = { Math.PI/2, 3*Math.PI/2})
     public void checkPiDotsPIdivTwo(double param) {
         assertEquals(1D, csc.solve(param), DEFAULT_PRECISION);
+    }
+
+    @ParameterizedTest(name = "csc({0}) = -1")
+    @DisplayName("Check PI dots PI/2")
+    @ValueSource(doubles = { -Math.PI/2, -3*Math.PI/2})
+    public void checkPiDotsMinusPIdivTwo(double param) {
+        assertEquals(-1D, csc.solve(param), DEFAULT_PRECISION);
     }
 
     @ParameterizedTest(name = "csc({0}) = NaN")

@@ -16,8 +16,11 @@ public class Csc implements IFunc {
     @Override
     public Double solve(Double x) {
         x = x % Math.PI;
-        if (x == Math.PI/2 || x == -Math.PI/2) {
+        if (x == Math.PI/2) {
             return 1D;
+        }
+        if (x == -Math.PI/2) {
+            return -1D;
         }
         if (x == 0) {
             return Double.NaN;
