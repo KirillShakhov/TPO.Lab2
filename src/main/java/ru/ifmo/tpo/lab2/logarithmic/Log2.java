@@ -6,6 +6,10 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 public class Log2 implements IFunc {
     private final IFunc logN;
 
+    public Log2() {
+        this.logN = new LogN(0.0001);
+    }
+
     public Log2(Double accuracy) {
         this.logN = new LogN(accuracy);
     }

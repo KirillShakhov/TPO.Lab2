@@ -5,6 +5,10 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 public class Csc implements IFunc {
     private final Sin sin;
 
+    public Csc(){
+        this.sin = new Sin(0.0001);
+    }
+
     public Csc(Double accuracy){
         this.sin = new Sin(accuracy);
     }

@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 
@@ -15,8 +16,13 @@ import ru.ifmo.tpo.lab2.logarithmic.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.quality.Strictness;
@@ -33,6 +39,25 @@ public class FunctionalSystemTests {
     @Mock private Log2 l2Mock;
     @Mock private Log3 l3Mock;
     @Mock private Log10 l10Mock;
+
+
+    @Spy
+    private Cot cotSpy;
+    @Spy
+    private Csc cscSpy;
+    @Spy
+    private Sin sinSpy;
+    @Spy
+    private Tg tgSpy;
+
+    @Spy
+    private Ln lnSpy;
+    @Spy
+    private Log2 l2Spy;
+    @Spy
+    private Log3 l3Spy;
+    @Spy
+    private Log10 l10Spy;
     
     private FunctionalSystem fs;
 
@@ -51,13 +76,34 @@ public class FunctionalSystemTests {
     public void afterMethod() throws Exception {
         openMocks.close();
     }
-    
-    // @ParameterizedTest(name = "Funtional System({0})")
-    // @DisplayName("Check PI dots")
-    // @ValueSource(doubles = {0, Math.PI/12, Math.PI/8, Math.PI/6, Math.PI/4, Math.PI/3, -Math.PI/12, -Math.PI/8, -Math.PI/6, -Math.PI/4, -Math.PI/3, Math.PI})
-    // void checkPiDots(double param) {
-    //     assertEquals(Math.tan(param), tg.solve(param), DEFAULT_PRECISION)
-    // }
+
+    @Before
+    public void initcheckFuncsUse(){
+        cotSpy = spy(new Cot());
+        cscSpy = spy(new Csc());
+        sinSpy = spy(new Sin());
+        tgSpy = spy(new Tg());
+        lnSpy = spy(new Ln());
+        l2Spy = spy(new Log2());
+        l3Spy = spy(new Log3());
+        l10Spy = spy(new Log10());
+        fs = new FunctionalSystem(cotSpy, cscSpy, l2Spy, l3Spy, l10Spy, lnSpy);
+    }
+
+    @Test
+    public void checkFuncsUse() {
+        fs.solve(1D);
+        fs.solve(-1D);
+        verify(cotSpy, atLeastOnce()).solve(anyDouble());
+        verify(cscSpy, atLeastOnce()).solve(anyDouble());
+        verify(l2Spy, atLeastOnce()).solve(anyDouble());
+        verify(l3Spy, atLeastOnce()).solve(anyDouble());
+        verify(l10Spy, atLeastOnce()).solve(anyDouble());
+        verify(lnSpy, atLeastOnce()).solve(anyDouble());
+        assertAll(
+            () -> assertEquals(0.1, 0, 0.1)
+    );
+    }
 
     // @ParameterizedTest(name = "Funtional System({0}) = NaN")
     // @DisplayName("Check PI dots NaN")

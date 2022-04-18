@@ -8,8 +8,8 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 import ru.ifmo.tpo.lab2.trigonometric.Cot;
 import ru.ifmo.tpo.lab2.trigonometric.Csc;
 
-public class FunctionalSystem implements IFunc {
 
+public class FunctionalSystem implements IFunc {
     Cot cot;
     Csc csc;
     Log2 log2;

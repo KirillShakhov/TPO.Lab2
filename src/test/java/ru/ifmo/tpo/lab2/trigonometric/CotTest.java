@@ -46,7 +46,6 @@ public class CotTest {
 
     @Before
     public void initcheckTgUse() {
-        openMocks = MockitoAnnotations.openMocks(this);
         this.cot = new Cot(spyTg);
     }
 
