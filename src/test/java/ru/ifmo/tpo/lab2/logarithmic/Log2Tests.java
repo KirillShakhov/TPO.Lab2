@@ -17,17 +17,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 public class Log2Tests {
-    @Mock
-    private static LogN lognMock;
     @Spy
     private static LogN lognSpy;
     private static Log2 l2;
     public static final double DEFAULT_PRECISION = 0.0000001;
 
- 
     @BeforeAll
     public static void setUp() {
-        lognMock = mock(LogN.class);
         l2 = new Log2(new LogN(DEFAULT_PRECISION));
     }
 
