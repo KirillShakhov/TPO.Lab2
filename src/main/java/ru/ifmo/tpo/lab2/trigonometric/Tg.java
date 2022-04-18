@@ -9,8 +9,15 @@ import static java.lang.Math.pow;
 import static java.lang.Math.abs;
 
 public class Tg implements IFunc{
+    private final Double accuracy;
 
-    public Tg(Double accuracy){}
+    public Tg(Double accuracy){
+        this.accuracy = accuracy;
+    }
+
+    public Tg(){
+        this.accuracy = 0D;
+    }
 
     @Override
     public Double solve(Double x){

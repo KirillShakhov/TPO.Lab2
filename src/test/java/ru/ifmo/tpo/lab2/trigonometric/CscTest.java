@@ -44,7 +44,7 @@ public class CscTest {
     }
 
     @Before
-    void setUp() {
+    public void setUp() {
         openMocks = MockitoAnnotations.openMocks(this);
         this.csc = new Csc(sinSpy);
     }
