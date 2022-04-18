@@ -11,9 +11,9 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertEquals(0, App.test());;
-    }
+    // @Test
+    // public void shouldAnswerWithTrue()
+    // {
+    //     assertEquals(0, App.test());;
+    // }
 }

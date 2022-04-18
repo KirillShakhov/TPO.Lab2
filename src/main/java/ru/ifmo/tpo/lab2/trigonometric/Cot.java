@@ -6,7 +6,7 @@ public class Cot implements IFunc {
     private final Tg tg;
 
     public Cot(Double accuracy){
-        this.tg = new Tg();
+        this.tg = new Tg(accuracy);
     }
 
     public Cot(Tg tg){

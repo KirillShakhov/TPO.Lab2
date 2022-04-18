@@ -17,7 +17,7 @@ public class TgTest {
 
     @BeforeAll
     public static void setUp() {
-        tg = new Tg();
+        tg = new Tg(DEFAULT_PRECISION);
     }
 
 
