@@ -2,7 +2,6 @@ package ru.ifmo.tpo.lab2;
 
 import java.io.IOException;
 
-import lombok.extern.java.Log;
 import ru.ifmo.tpo.lab2.logarithmic.*;
 import ru.ifmo.tpo.lab2.trigonometric.*;
 
@@ -73,6 +72,14 @@ public class App {
         CsvWriter.write(
                 "csv/log10.csv",
                 log10,
+                from,
+                to,
+                step);
+
+        final FunctionalSystem fs = new FunctionalSystem(accuracy);
+        CsvWriter.write(
+                "csv/fs.csv",
+                fs,
                 from,
                 to,
                 step);

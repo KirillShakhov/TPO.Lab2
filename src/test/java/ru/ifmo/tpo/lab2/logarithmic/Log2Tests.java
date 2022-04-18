@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.ifmo.tpo.lab2.models.NotANumberException;
 
 
-class Log2Test {
+public class Log2Tests {
 
     static LogN ln;
     static Log2 l2;
