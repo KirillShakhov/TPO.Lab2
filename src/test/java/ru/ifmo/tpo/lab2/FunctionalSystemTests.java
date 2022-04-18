@@ -46,7 +46,7 @@ public class FunctionalSystemTests {
     private static FunctionalSystem fs;
 
 
-    public final static double DEFAULT_PRECISION = 0.0001;
+    public final static double DEFAULT_PRECISION = 0.0000001;
 
     @BeforeAll
     public static void initMocks() {

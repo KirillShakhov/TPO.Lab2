@@ -16,7 +16,7 @@ public class Tg implements IFunc{
     }
 
     public Tg(){
-        this.accuracy = 0.0001;
+        this.accuracy = 0.0000001;
     }
 
     @Override

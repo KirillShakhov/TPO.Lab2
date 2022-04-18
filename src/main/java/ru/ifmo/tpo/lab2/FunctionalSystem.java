@@ -40,7 +40,7 @@ public class FunctionalSystem implements IFunc {
             return csc.solve(x)/cot.solve(x);
         }
         else{
-            return ((Math.pow((((log3.solve(x)*log10.solve(x))*(ln.solve(x)-log3.solve(x)))*log10.solve(x)),2))*(Math.pow((log3.solve(x)+log2.solve(x)), 2)));
+            return ((Math.pow((((log3.solve(x)*log10.solve(x))*(ln.solve(x)-log3.solve(x)))*log10.solve(x)),2))*Math.pow((log3.solve(x)+log2.solve(x)), 2));
         }
     }
 }

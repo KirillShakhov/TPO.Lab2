@@ -7,7 +7,7 @@ public class Log3 implements IFunc {
     private final IFunc logN;
 
     public Log3() {
-        this.logN = new LogN(0.0001);
+        this.logN = new LogN(0.0000001);
     }
 
     public Log3(Double accuracy) {

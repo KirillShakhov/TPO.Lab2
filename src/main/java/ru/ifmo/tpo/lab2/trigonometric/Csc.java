@@ -6,7 +6,7 @@ public class Csc implements IFunc {
     private final Sin sin;
 
     public Csc(){
-        this.sin = new Sin(0.0001);
+        this.sin = new Sin(0.0000001);
     }
 
     public Csc(Double accuracy){

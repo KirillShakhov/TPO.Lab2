@@ -6,7 +6,7 @@ public class Ln implements IFunc {
     private final IFunc logN;
 
     public Ln() {
-        this.logN = new LogN(0.0001);
+        this.logN = new LogN(0.0000001);
     }
 
     public Ln(Double accuracy) {
