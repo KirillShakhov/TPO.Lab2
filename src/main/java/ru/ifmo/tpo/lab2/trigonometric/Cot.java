@@ -5,9 +5,6 @@ import ru.ifmo.tpo.lab2.models.IFunc;
 public class Cot implements IFunc {
     private final Tg tg;
 
-    public Cot(){
-        this.tg = new Tg(0.0000001);
-    }
 
     public Cot(Double accuracy){
         this.tg = new Tg(accuracy);
